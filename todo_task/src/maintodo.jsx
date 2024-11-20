@@ -91,7 +91,6 @@ function Maintodo() {
     }
   };
 
-  // Calculate total pages
   const totalPages = Math.ceil(totalTodos / ITEMS_PER_PAGE);
 
   return (
