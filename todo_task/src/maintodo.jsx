@@ -31,7 +31,6 @@ function Maintodo() {
     fetchTodos();
   }, [currentPage]);
 
- 
   const addTodo = async (text) => {
     try {
       const response = await fetch("https://dummyjson.com/todos/add", {
@@ -50,7 +49,6 @@ function Maintodo() {
     }
   };
 
-
   const toggleTodo = async (id) => {
     try {
       const todoToUpdate = todos.find((todo) => todo.id === id);
@@ -62,7 +60,6 @@ function Maintodo() {
         }),
       });
 
-      /
       setTodos((prevTodos) =>
         prevTodos.map((todo) =>
           todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -73,7 +70,6 @@ function Maintodo() {
     }
   };
 
-  
   const deleteTodo = async (id) => {
     try {
       await fetch(`https://dummyjson.com/todos/${id}`, {
@@ -85,7 +81,6 @@ function Maintodo() {
     }
   };
 
-  // Get random todo
   const addRandomTodo = async () => {
     try {
       const response = await fetch("https://dummyjson.com/todos/random");
@@ -96,7 +91,7 @@ function Maintodo() {
     }
   };
 
- 
+  // Calculate total pages
   const totalPages = Math.ceil(totalTodos / ITEMS_PER_PAGE);
 
   return (
